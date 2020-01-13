@@ -1,0 +1,17 @@
+{
+  "name": "md5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {
+    "locutus": "^2.0.11",
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "uniqid": "^5.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
