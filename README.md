@@ -72,7 +72,7 @@ Request URL: /v1/developers/1234/plugins/1234.json
 }
 ```
 
-There are a series of examples for all API scopes to help you get started in `./examples'. These can be run by entering:
+There are a series of examples for all API scopes to help you get started in `./examples`. These can be run by entering:
 
 ```javascript
   node ./examples/app-examples.js
