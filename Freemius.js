@@ -44,7 +44,7 @@ class Freemius {
     */
     
     /**
-     * @param string pScope 'app', 'developer', 'store', 'user' or 'install'.
+     * @param string pScope 'app', 'developer', 'store', 'user', 'plugin' or 'install'.
      * @param number pID Element's id.
      * @param string pPublic Public key.
      * @param string pSecret Element's secret key.
