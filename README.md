@@ -81,4 +81,6 @@ There are a series of examples for all API scopes to help you get started in `./
   node ./examples/user-examples.js
 ```
 
+Not all the examples are run by default. Open up each example file and enable the ones you want to run.
+
 Note: Only `developer-examples.js` currently contain working examples.
