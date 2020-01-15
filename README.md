@@ -21,7 +21,7 @@ Basic SDK usage.
 
   // Get specific plugin details
   developer.Api('/plugins/' + plugin_id + '.json', 'GET', [], [], function (e) {
-    console.log('Request URL: ' + developer.requestURL());
+    console.log('Request URL: ' + developer.requestURL);
     console.log(JSON.parse(e));
   });
 ```
