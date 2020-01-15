@@ -28,7 +28,7 @@ Basic SDK usage.
 
 This will output a response from the Freemius API: (specific data removed for security reasons)
 
-```javascript
+```
 Request URL: /v1/developers/1234/plugins/1234.json
  {
   parent_plugin_id: null,
