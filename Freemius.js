@@ -44,7 +44,7 @@ class Freemius {
     */
     
     /**
-     * @param string pScope 'app', 'developer', 'user' or 'install'.
+     * @param string pScope 'app', 'developer', 'store', 'user', 'plugin' or 'install'.
      * @param number pID Element's id.
      * @param string pPublic Public key.
      * @param string pSecret Element's secret key.
@@ -107,9 +107,11 @@ class Freemius {
                 throw new Freemius_Error('Scope not implemented.');
         }
 
-        return '/v' + FS_API__VERSION + base +
-            (!empty(pPath) ? '/' : '') + pPath +
-            ((-1 === pPath.indexOf('.')) ? '.' + FORMAT : '') + query;
+        let requestURL = '/v' + FS_API__VERSION + base +
+        (!empty(pPath) ? '/' : '') + pPath +
+        ((-1 === pPath.indexOf('.')) ? '.' + FORMAT : '') + query;
+        this.requestURL = requestURL;
+        return requestURL;
     }
 
     _Api(pPath, pMethod = 'GET', pParams = {}, pFileParams = {},responseCallback) {
@@ -168,7 +170,7 @@ class Freemius {
     }
 
     Api(pPath, pMethod = 'GET', pParams = {}, pFileParams = {},responseCallback) {
-        return this._Api(this.CanonizePath(pPath), pMethod, pParams, pFileParams,responseCallback);
+        return this._Api(this.CanonizePath(pPath), pMethod, pParams, pFileParams, responseCallback);
     }
 
     /**
@@ -213,8 +215,6 @@ class Freemius {
     GetUrl(pCanonizedPath = '') {
         return (this.sandbox ? FS_API__SANDBOX_ADDRESS : FS_API__ADDRESS) + pCanonizedPath;
     }
-
-
 
     /**
      * Set clock diff for all API calls.
@@ -296,7 +296,6 @@ class Freemius {
         // If secret and public keys are identical, it means that
         // the signature uses public key hash encoding.
         let auth_type = (this.secret !== this.public) ? 'FS' : 'FSP';
-
 
         //creating hmac object 
         let hmac = crypto.createHmac('sha256', this.secret);
