@@ -13,12 +13,27 @@ process.stdout.write('\033c');
 //getAllPluginVersions();
 //getAllPluginDetails();
 getSpecificPluginDetails(FS__API_PLUGIN_ID);
+//getActiveSites();
 //downloadSpecificPluginZip(14418); // not currently working
 //updatePluginTitle('New Plugin Title!');
 //deployPluginZip('freemius.zip'); // not tested yet
 //findClockDiff();
 
 // DEVELOPER SCOPE BASED REQUESTS
+
+// Get active sites for a particular plugin
+// API - https://freemius.docs.apiary.io/#reference/installs-/-a.k.a.-sites/installs-collection/retrieve-installs
+function getActiveSites() {
+  developer.Api('/plugins/' + FS__API_PLUGIN_ID + '/installs.json', 'GET', [], [], function (sites) {
+    // list active sites
+    console.log(JSON.parse(sites));
+
+    // list just the active site URLs
+    JSON.parse(sites).installs.forEach(function(site) {
+      console.log(site.url);
+    });
+  });
+}
 
 // Get all plugin versions
 // API - https://freemius.docs.apiary.io/#reference/deployment/plugin-tagsversions/list-all-tags
