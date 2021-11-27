@@ -10,7 +10,7 @@ Run `npm i https://github.com/Freemius/freemius-node-sdk.git` to install the pac
 Basic SDK usage.
 
 ```javascript
-  const Freemius = require('./Freemius');
+  const Freemius = require('freemius-node-sdk');
   const FS__API_SCOPE = 'developer';
   const FS__API_DEV_ID = 1234;
   const FS__API_PUBLIC_KEY = 'pk_YOUR_PUBLIC_KEY';
