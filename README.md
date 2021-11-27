@@ -5,7 +5,7 @@ As a plugin or theme developer using Freemius, you can access your data via the 
 If you only need to access one product, we recommend using the `plugin` scope. You can get the product's credentials in *SETTINGS -> Keys*.
 If you need to access multiple products, use the `developer` scope. To get your credentials, click on *My Profile* at the top right menu and you'll find it in the *Keys* section.
 
-Download the SDK and run `npm i` to install dependencies.
+Run `npm i https://github.com/Freemius/freemius-node-sdk` to install dependencies.
 
 Basic SDK usage.
 
