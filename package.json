@@ -1,8 +1,8 @@
 {
-  "name": "md5",
+  "name": "freemius-node-sdk",
   "version": "1.0.0",
   "description": "",
-  "main": "test.js",
+  "main": "Freemius.js",
   "dependencies": {
     "locutus": "^2.0.11",
     "moment": "^2.24.0",
