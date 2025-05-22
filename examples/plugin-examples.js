@@ -13,8 +13,11 @@ pingPlugins();
 
 // PLUGIN SCOPE BASED REQUESTS
 
-// Test plugin connectivity
-// API - https://freemius.docs.apiary.io/#reference/plugins/ping/test-connectivity
+/**
+ * Check if the product is active.
+ * 
+ * @see https://docs.freemius.com/api/products/check-status
+ */
 function pingPlugins() {
   plugin.Api('/ping.json', 'GET', [], [], function (e) {
     logResponse(e, developer);

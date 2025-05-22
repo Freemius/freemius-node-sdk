@@ -21,8 +21,11 @@ getSpecificPluginDetails(FS__API_PLUGIN_ID);
 
 // DEVELOPER SCOPE BASED REQUESTS
 
-// Get active sites for a particular plugin
-// API - https://freemius.docs.apiary.io/#reference/installs-/-a.k.a.-sites/installs-collection/retrieve-installs
+/**
+ * Get active sites for a particular plugin.
+ * 
+ * @see https://docs.freemius.com/api/installations/list-installs
+ */
 function getActiveSites() {
   developer.Api('/plugins/' + FS__API_PLUGIN_ID + '/installs.json', 'GET', [], [], function (sites) {
     // list active sites
@@ -35,51 +38,68 @@ function getActiveSites() {
   });
 }
 
-// Get all plugin versions
-// API - https://freemius.docs.apiary.io/#reference/deployment/plugin-tagsversions/list-all-tags
+/**
+ * Get all plugin versions deployed.
+ * 
+ * @see https://docs.freemius.com/api/deployments/list
+ */
 function getAllPluginVersions() {
   developer.Api('/plugins/' + FS__API_PLUGIN_ID + '/tags.json', 'GET', [], [], function (e) {
     logResponse(e, developer);
   });
 }
 
-// Get all plugin details
-// API - https://freemius.docs.apiary.io/#reference/plugins/plugins-collection/list-all-plugins
+/**
+ * Get all plugin details.
+ * 
+ * @see https://freemius.docs.apiary.io/#reference/plugins/plugins-collection/list-all-plugins
+ */
 function getAllPluginDetails() {
   developer.Api('/plugins.json', 'GET', [], [], function (e) {
     logResponse(e, developer);
   });
 }
 
-// Get specific plugin details
-// API - https://freemius.docs.apiary.io/#reference/plugins/plugins-collection/retrieve-plugin
+/**
+ * Get specific plugin information.
+ * 
+ * @see https://docs.freemius.com/api/products/get-info
+ */
 function getSpecificPluginDetails(plugin_id) {
   developer.Api('/plugins/' + plugin_id + '.json', 'GET', [], [], function (e) {
     logResponse(e, developer);
   });
 }
 
-// Download specific plugin version zip
-// API - https://freemius.docs.apiary.io/#reference/installs-/-a.k.a.-sites/plugin-version/download-plugin-version
+/**
+ * Download a specific deployed version of the product.
+ * 
+ * @see https://docs.freemius.com/api/deployments/download
+ */
 function downloadSpecificPluginZip(tag_id) {
   developer.Api('/plugins/' + FS__API_PLUGIN_ID + '/tags/' + tag_id + '.zip?is_premium=false', 'GET', [], [], function (data) {
     logResponse(e, developer, false);
-    //Need to create the zip ourselves? Put contents into a file
-    //not quite working yet
+    // TODO: Need to create the zip ourselves? Put contents into a file.
     fs.writeFileSync('C:/Users/dvgwy/Desktop/aaa/plugins/zippy.zip', data, 'binary');
   });
 }
 
-// Update plugin title
-// API - https://freemius.docs.apiary.io/#reference/plugins/plugins-collection/update-plugin
+/**
+ * Update plugin title.
+ * 
+ * @see https://docs.freemius.com/api/products/update
+ */
 function updatePluginTitle(title) {
     developer.Api("/plugins/" + FS__API_PLUGIN_ID + ".json", 'PUT', { 'title': title }, {}, function (e) {
       logResponse(e, developer, false);
   });
 }
 
-// Deploy plugin zip file to freemius
-// API - https://freemius.docs.apiary.io/#reference/deployment/plugin-tagsversions/deploy-new-version
+/**
+ * Deploy plugin zip file to freemius.
+ * 
+ * @see https://docs.freemius.com/api/deployments/create
+ */
 function deployPluginZip(zipFile) {
   developer.Api('plugins/' + FS__PLUGIN_ID + '/tags.json', 'POST', {
     'add_contributor': true

@@ -1,5 +1,5 @@
 # Freemius Node SDK
-This SDK is a wrapper for accessing the [Freemius API](https://freemius.docs.apiary.io/). It handles the endpoint's path and authorization signature generation.
+This SDK is a wrapper for accessing the [Freemius API](https://docs.freemius.com/api). It handles the endpoint's path and authorization signature generation.
 
 As a plugin or theme developer using Freemius, you can access your data via the `app`, `developer`, `plugin`, or `user` scope. 
 If you only need to access one product, we recommend using the `plugin` scope. You can get the product's credentials in *SETTINGS -> Keys*.
@@ -28,8 +28,9 @@ Basic SDK usage.
 
 This will output a response from the Freemius API: (specific data removed for security reasons)
 
-```
-Request URL: /v1/developers/1234/plugins/1234.json
+`Request URL: /v1/developers/1234/plugins/1234.json`
+
+```json
  {
   parent_plugin_id: null,
   developer_id: '1234',

@@ -13,8 +13,11 @@ getLatestFreePluginDetails(FS__API_PLUGIN_ID);
 
 // USER SCOPE BASED REQUESTS
 
-// Get latest free version details (doesn't work right now)
-// API - https://freemius.docs.apiary.io/#reference/plugins/updates/get-latest-free-version-details
+/**
+ * Get latest free version details (doesn't work right now)
+ * 
+ * @see https://docs.freemius.com/api/deployments/get-latest
+ */
 function getLatestFreePluginDetails(plugin_id) {
   user.Api('/plugins/' + plugin_id + '/updates/latest.json', 'GET', [], [], function (e) {
     logResponse(e, user);
