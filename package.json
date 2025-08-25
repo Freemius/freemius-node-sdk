@@ -4,7 +4,7 @@
   "description": "",
   "main": "Freemius.js",
   "dependencies": {
-    "locutus": "^2.0.11",
+    "locutus": "^2.0.15",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "uniqid": "^5.2.0"
