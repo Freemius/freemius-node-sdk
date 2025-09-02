@@ -414,8 +414,9 @@ class Freemius {
         request(options, function (error, response, body) {
             //console.log(error);
             //console.log(response);
-            if (!error && response.statusCode == 200) {
-                responseCallback(response.body);
+            // Accept any 2xx status code as success (200-299)
+            if (!error && response.statusCode >= 200 && response.statusCode < 300) {
+                responseCallback(response.body || '');
 
             } else {
                 console.log("Error:Stats Code:"+response.statusCode);
