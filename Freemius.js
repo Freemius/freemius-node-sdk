@@ -455,8 +455,9 @@ class Freemius {
             data +=
                 ('--' + pBoundary + os.EOL) +
                 (`Content-Disposition: form-data; name="${name}"; filename="${filename}"` + os.EOL) +
-                (`Content-Type: ${this.GetMimeContentType(file_path)}` + os.EOL);
-            
+                (`Content-Type: ${this.GetMimeContentType(file_path)}` + os.EOL) +
+                os.EOL;
+
             content = fs.readFileSync(file_path);
         }
 
