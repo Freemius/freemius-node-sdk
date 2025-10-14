@@ -346,6 +346,11 @@ class Freemius {
 
         };
 
+        // For binary downloads (like .zip files), set encoding to null
+        if (pCanonizedPath.endsWith('.zip')) {
+            options.encoding = null;
+        }
+
         let content_type = 'application/json';
         let json_encoded_params = empty(pParams) ? '' : JSON.stringify(pParams);
 
