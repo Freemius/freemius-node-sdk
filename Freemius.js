@@ -346,6 +346,11 @@ class Freemius {
 
         };
 
+        // For binary downloads (like .zip files), set encoding to null
+        if (pCanonizedPath.endsWith('.zip')) {
+            options.encoding = null;
+        }
+
         let content_type = 'application/json';
         let json_encoded_params = empty(pParams) ? '' : JSON.stringify(pParams);
 
@@ -414,8 +419,9 @@ class Freemius {
         request(options, function (error, response, body) {
             //console.log(error);
             //console.log(response);
-            if (!error && response.statusCode == 200) {
-                responseCallback(response.body);
+            // Accept any 2xx status code as success (200-299)
+            if (!error && response.statusCode >= 200 && response.statusCode < 300) {
+                responseCallback(response.body || '');
 
             } else {
                 console.log("Error:Stats Code:"+response.statusCode);
@@ -454,8 +460,9 @@ class Freemius {
             data +=
                 ('--' + pBoundary + os.EOL) +
                 (`Content-Disposition: form-data; name="${name}"; filename="${filename}"` + os.EOL) +
-                (`Content-Type: ${this.GetMimeContentType(file_path)}` + os.EOL);
-            
+                (`Content-Type: ${this.GetMimeContentType(file_path)}` + os.EOL) +
+                os.EOL;
+
             content = fs.readFileSync(file_path);
         }
 
